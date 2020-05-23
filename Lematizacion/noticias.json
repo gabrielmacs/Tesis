@@ -1,0 +1,52 @@
+{
+    "noticias": [
+        {
+            "Juegos de tres palabras": [
+                "casar coronavirus país",
+                "sanitario méxico reportar",
+                "méxico reportar viernes",
+                "reportar viernes febrero",
+                "viernes febrero 3",
+                "febrero 3 casar",
+                "3 casar coronavirus",
+                "casar coronavirus confirmar",
+                "coronavirus confirmar infectar",
+                "confirmar infectar capital"
+            ],
+            "Juegos de dos palabras": [
+                "casar coronavirus",
+                "ciudad méxico",
+                "coronavirus confirmar",
+                "confirmar casar",
+                "coronavirus país",
+                "confirmar covid-19",
+                "secretaría salud",
+                "casar relacionar",
+                "norte italia",
+                "conferenciar relacionar",
+                "autoridades sanitario",
+                "sanitario autoridades",
+                "méxico sanitario",
+                "reportar méxico",
+                "viernes reportar",
+                "febrero viernes",
+                "3 febrero",
+                "confirmar infectar",
+                "infectar confirmar",
+                "capital infectar"
+            ],
+            "Autores": [
+                "director epidemiología méxico",
+                "gobierno sinaloa noroeste",
+                "gobernador quirino ordaz",
+                "secretario salud efrén",
+                "subsecretario prevención promoción",
+                "instituto nacional enfermedades"
+            ],
+            "Ubicaciones": [
+                "Ciudad de México LOC",
+                "Culiacán LOC"
+            ]
+        }
+    ]
+}
