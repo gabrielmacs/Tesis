@@ -2,50 +2,48 @@
     "noticias": [
         {
             "Juegos de tres palabras": [
-                "casar coronavirus país",
-                "sanitario méxico reportar",
-                "méxico reportar viernes",
-                "reportar viernes febrero",
-                "viernes febrero 3",
-                "febrero 3 casar",
-                "3 casar coronavirus",
-                "casar coronavirus confirmar",
-                "coronavirus confirmar infectar",
-                "confirmar infectar capital"
+                "ministerio salud pública",
+                "organización panamericana salud",
+                "organización mundial salud",
+                "vigilancia epidemiológico país",
+                "epidemiológico país casar",
+                "país casar sospechoso",
+                "casar sospechoso coronavirus",
+                "sospechoso coronavirus autoridad",
+                "coronavirus autoridad ministerio",
+                "autoridad ministerio salud"
             ],
             "Juegos de dos palabras": [
-                "casar coronavirus",
-                "ciudad méxico",
-                "coronavirus confirmar",
-                "confirmar casar",
-                "coronavirus país",
-                "confirmar covid-19",
-                "secretaría salud",
-                "casar relacionar",
-                "norte italia",
-                "conferenciar relacionar",
-                "autoridades sanitario",
-                "sanitario autoridades",
-                "méxico sanitario",
-                "reportar méxico",
-                "viernes reportar",
-                "febrero viernes",
-                "3 febrero",
-                "confirmar infectar",
-                "infectar confirmar",
-                "capital infectar"
+                "casar sospechoso",
+                "ministerio salud",
+                "salud ministerio",
+                "domingo enero",
+                "ciudadano chino",
+                "lunes enero",
+                "organización panamericana",
+                "panamericana organización",
+                "organización mundial",
+                "mundial organización",
+                "coronavirus wuhan",
+                "ecuatoriano residente",
+                "personar vigilancia",
+                "vigilancia personar",
+                "epidemiológico vigilancia",
+                "país epidemiológico",
+                "sospechoso coronavirus",
+                "coronavirus sospechoso",
+                "autoridad coronavirus",
+                "pública confirmar"
             ],
             "Autores": [
-                "director epidemiología méxico",
-                "gobierno sinaloa noroeste",
-                "gobernador quirino ordaz",
-                "secretario salud efrén",
-                "subsecretario prevención promoción",
-                "instituto nacional enfermedades"
+                "ministerio salud pública",
+                "gobierno china oms",
+                "ministerio salud pública"
             ],
             "Ubicaciones": [
-                "Ciudad de México LOC",
-                "Culiacán LOC"
+                "Ecuador LOC",
+                "China LOC",
+                "Andramuño PER"
             ]
         }
     ]
