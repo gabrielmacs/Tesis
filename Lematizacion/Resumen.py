@@ -21,27 +21,35 @@ class Resumen:
     #variables auxiliares
     posicionesParaBorrarEnLemma=[]
 
-    def __init__(self, texto):
-        if(texto!=""):
-            self.doc = ''
-            self.listaPalabrasLematizadas=[]
-            self.entMiscEvNacProdObr=[]
-            self.etiquetadas=[]
-            self.frasesDosPalabras = []
-            self.frasesTresPalabras = []
-            self.frasesTresPalabrasNoRepetidas = []
-            self.frasesDosPalabrasNoRepetidas = []
-            self.palabrasEtiquetadasRepetidas = []
-            self.autoresStemming = []
-            self.posicionesParaBorrarEnLemma=[]
+    def __init__(self):
+        self.doc = ''
+        self.listaPalabrasLematizadas=[]
+        self.entMiscEvNacProdObr=[]
+        self.etiquetadas=[]
+        self.frasesDosPalabras = []
+        self.frasesTresPalabras = []
+        self.frasesTresPalabrasNoRepetidas = []
+        self.frasesDosPalabrasNoRepetidas = []
+        self.palabrasEtiquetadasRepetidas = []
+        self.autoresStemming = []
+        self.posicionesParaBorrarEnLemma=[]
+
+    def procesarPalabrasClave(self, nombreArchivoTxt):
+        if(nombreArchivoTxt!=""):
+            self.palabrasClave=[]
+            ruta='Git/Lematizacion/'+nombreArchivoTxt
+            with open(ruta) as file:
+                self.palabrasClave = [self.spanishstemmer.stem(i.strip()) for i in file]
+                print(self.palabrasClave)
+
+
+    def procesarTexto(self,texto):
+         if(texto!=""):
             self.doc = self.nlp(texto)
             self.lematizarPalabras()
 
-    def procesarPalabrasClave(self, palabrasClaveRecibidas):
-        if(palabrasClaveRecibidas!=""):
-            self.palabrasClave = []
-            self.palabrasClave = [self.spanishstemmer.stem(i) for i in palabrasClaveRecibidas]
-                
+
+
     def etiquetarPalabras(self):
         for e in self.doc.ents:
             if e .label_=='MISC':

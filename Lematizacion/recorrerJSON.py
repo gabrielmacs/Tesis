@@ -1,7 +1,11 @@
 import json
 from Resumen import Resumen
 
-with open('Git/noticias/noticias.json') as file:
+resumen=Resumen()
+resumen.procesarPalabrasClave("palabrasClave.txt")
+
+"""
+with open('Git/noticias/noticias.json') as file 
     data = json.load(file)
     for i,noticia in enumerate(data['noticias']):
         print(i,"@@@@@@")
@@ -9,7 +13,7 @@ with open('Git/noticias/noticias.json') as file:
         resumen=Resumen(noticia['Texto'])
         print('Autores:', resumen.autoresStemming)
         print('Frases dos palabras:', resumen.frasesTresPalabrasNoRepetidas)
-      
+   """ 
 
 
 
