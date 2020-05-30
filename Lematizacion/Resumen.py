@@ -44,7 +44,18 @@ class Resumen:
 
 
     def procesarTexto(self,texto):
-         if(texto!=""):
+        self.doc = ''
+        self.listaPalabrasLematizadas=[]
+        self.entMiscEvNacProdObr=[]
+        self.etiquetadas=[]
+        self.frasesDosPalabras = []
+        self.frasesTresPalabras = []
+        self.frasesTresPalabrasNoRepetidas = []
+        self.frasesDosPalabrasNoRepetidas = []
+        self.palabrasEtiquetadasRepetidas = []
+        self.autoresStemming = []
+        self.posicionesParaBorrarEnLemma=[]
+        if(texto!=""):
             self.doc = self.nlp(texto)
             self.lematizarPalabras()
 
@@ -88,8 +99,9 @@ class Resumen:
         self.quitarPalabrasUsadasEnRaiz()
 
     def quitarPalabrasUsadasEnRaiz(self):
-        for i in self.posicionesParaBorrarEnLemma:
-            self.listaPalabrasLematizadas.remove(i)
+        if(len(self.posicionesParaBorrarEnLemma)>0):
+            for i in self.posicionesParaBorrarEnLemma:
+                self.listaPalabrasLematizadas.remove(i)
         self.juegosPalabras()
 
     def juegosPalabras(self):

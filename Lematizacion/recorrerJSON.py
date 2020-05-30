@@ -1,19 +1,19 @@
 import json
 from Resumen import Resumen
 
-resumen=Resumen()
-resumen.procesarPalabrasClave("palabrasClave.txt")
 
-"""
-with open('Git/noticias/noticias.json') as file 
+
+with open('Git/noticias/noticias.json') as file:
     data = json.load(file)
+    resumen=Resumen()
+    resumen.procesarPalabrasClave("palabrasClave.txt")
     for i,noticia in enumerate(data['noticias']):
-        print(i,"@@@@@@")
+        print(i,"___________________________________________________________________")
         print(noticia['Titulo'])
-        resumen=Resumen(noticia['Texto'])
+        resumen.procesarTexto(noticia['Texto'])
         print('Autores:', resumen.autoresStemming)
         print('Frases dos palabras:', resumen.frasesTresPalabrasNoRepetidas)
-   """ 
+   
 
 
 
