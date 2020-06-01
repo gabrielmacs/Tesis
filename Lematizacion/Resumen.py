@@ -10,7 +10,7 @@ class Resumen:
     doc = ''
     listaPalabrasLematizadas=[]
     entMiscEvNacProdObr=[]
-    etiquetadas=[]
+    etiquetadasTodasNoMisc=[]
     frasesDosPalabras = []
     frasesTresPalabras = []
     frasesTresPalabrasNoRepetidas = []
@@ -25,7 +25,7 @@ class Resumen:
         self.doc = ''
         self.listaPalabrasLematizadas=[]
         self.entMiscEvNacProdObr=[]
-        self.etiquetadas=[]
+        self.etiquetadasTodasNoMisc=[]
         self.frasesDosPalabras = []
         self.frasesTresPalabras = []
         self.frasesTresPalabrasNoRepetidas = []
@@ -47,7 +47,7 @@ class Resumen:
         self.doc = ''
         self.listaPalabrasLematizadas=[]
         self.entMiscEvNacProdObr=[]
-        self.etiquetadas=[]
+        self.etiquetadasTodasNoMisc=[]
         self.frasesDosPalabras = []
         self.frasesTresPalabras = []
         self.frasesTresPalabrasNoRepetidas = []
@@ -66,11 +66,11 @@ class Resumen:
             if e .label_=='MISC':
                 self.entMiscEvNacProdObr.append(e)
             elif (e.label_ !='DATE' and e.label_ != 'CARDINAL' and e.label_ != 'ORDINAL' and e.label_ != 'PERCENT' and e.label_ != 'QUANTITY'):
-                self.etiquetadas.append(e)
+                self.etiquetadasTodasNoMisc.append(e)
         self.etiquetadasRepetidas()
 
     def etiquetadasRepetidas(self):
-        autoresTotales = Counter(self.etiquetadas)
+        autoresTotales = Counter(self.etiquetadasTodasNoMisc)
         for at in autoresTotales:
             if(autoresTotales[at] > 2):
                 self.palabrasEtiquetadasRepetidas.append(at)
@@ -127,12 +127,14 @@ class Resumen:
     def tresPalabrasNoRepetidas(self):
         jurgosTresPalabras = Counter(self.frasesTresPalabras).most_common(10)
         for j in jurgosTresPalabras:
-           self.frasesTresPalabrasNoRepetidas.append(j)
+            if(j[1]>1):
+                self.frasesTresPalabrasNoRepetidas.append(j)
         self.dosPalabrasNoRepetidas()
 
     def dosPalabrasNoRepetidas(self):
         frasesFrecuenteRepetidas = Counter(self.frasesDosPalabras).most_common(40)
         for i in range(0, len(frasesFrecuenteRepetidas), 2):
-            self.frasesDosPalabrasNoRepetidas.append(frasesFrecuenteRepetidas[i])
+            if(frasesFrecuenteRepetidas[i][1]>1):
+                self.frasesDosPalabrasNoRepetidas.append(frasesFrecuenteRepetidas[i])
 
 
