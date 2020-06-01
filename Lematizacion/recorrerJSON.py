@@ -12,12 +12,17 @@ with open('Git/noticias/noticias.json') as file:
         print(noticia['Titulo'])
         resumen.procesarTexto(noticia['Texto'])
         print('Autores:', resumen.autoresStemming)
-        print('Frases dos palabras:', resumen.frasesTresPalabrasNoRepetidas)
-   
+        print('Frases dos palabras:', resumen.frasesDosPalabrasNoRepetidas)
+        print('Frases tres palabras:', resumen.frasesTresPalabrasNoRepetidas)
 
 
+"""
+quitar verbos de autores
+obtener pesos de cada palabra y sumar al numero de veces repetidas sumar valor de wiki, google noticias y academico(numero de veces que sale en google)
 
-
+preguntar: obtener un autor y un tema de todas las noticias 
+como es la integracio  al conectar con Graphql
+"""
 """
 diccionario de archivo texto 
 enriquesiendo diccionario segun las noticias

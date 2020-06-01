@@ -127,12 +127,12 @@ class Resumen:
     def tresPalabrasNoRepetidas(self):
         jurgosTresPalabras = Counter(self.frasesTresPalabras).most_common(10)
         for j in jurgosTresPalabras:
-           self.frasesTresPalabrasNoRepetidas.append(j[0])
+           self.frasesTresPalabrasNoRepetidas.append(j)
         self.dosPalabrasNoRepetidas()
 
     def dosPalabrasNoRepetidas(self):
         frasesFrecuenteRepetidas = Counter(self.frasesDosPalabras).most_common(40)
         for i in range(0, len(frasesFrecuenteRepetidas), 2):
-            self.frasesDosPalabrasNoRepetidas.append(frasesFrecuenteRepetidas[i][0])
+            self.frasesDosPalabrasNoRepetidas.append(frasesFrecuenteRepetidas[i])
 
 
