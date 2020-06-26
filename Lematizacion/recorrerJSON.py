@@ -1,9 +1,18 @@
 import json
+import os
+
 from Resumen import Resumen
 
+nombreArchivoJSON = "AutoresTemas.json"
+rutaActualpy = os.path.dirname(os.path.abspath(__file__))
+pathArchivoJSON = os.path.join(rutaActualpy, nombreArchivoJSON)
 
 
-with open('Git/noticias/noticias.json') as file:
+
+dataAT = {}
+dataAT['Autores y temas'] = []
+
+with open('Git/noticias/noticias.json',encoding="utf8") as file:
     data = json.load(file)
     resumen=Resumen()
     resumen.procesarPalabrasClave("palabrasClave.txt")
@@ -18,10 +27,27 @@ with open('Git/noticias/noticias.json') as file:
         resumen.etiquetarPalabras()
         print('Palabras miscelaneas repetidas:', resumen.entMiscEvNacProdObr)
         print('Palabras repetidas:', resumen.etiquetadasTodasNoMisc)
-        
+        dataAT['Autores y temas'].append({
+        'Id': i,
+        'Titulo': resumen.procesarTexto(noticia['Texto']),
+        'Autores': resumen.autoresStemming,
+        'Temas': resumen.frasesDosPalabrasNoRepetidas + resumen.frasesTresPalabrasNoRepetidas, 
+        })
 
+
+with open(pathArchivoJSON, 'w',encoding="utf8") as file:
+    json.dump(dataAT, file, indent=4, ensure_ascii=False)
 
 """
+
+   
+
+
+
+
+
+
+
 with open('Git/noticias/noticias.json') as file:
     data = json.load(file)
     resumen=Resumen()
