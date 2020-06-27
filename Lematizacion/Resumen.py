@@ -16,7 +16,7 @@ class Resumen:
     frasesTresPalabrasNoRepetidas = []
     frasesDosPalabrasNoRepetidas = []
     palabrasEtiquetadasRepetidas = []
-    autoresStemming = []
+    actoresStemming = []
 
     #variables auxiliares
     posicionesParaBorrarEnLemma=[]
@@ -31,7 +31,7 @@ class Resumen:
         self.frasesTresPalabrasNoRepetidas = []
         self.frasesDosPalabrasNoRepetidas = []
         self.palabrasEtiquetadasRepetidas = []
-        self.autoresStemming = []
+        self.actoresStemming = []
         self.posicionesParaBorrarEnLemma=[]
 
     def procesarPalabrasClave(self, nombreArchivoTxt):
@@ -53,7 +53,7 @@ class Resumen:
         self.frasesTresPalabrasNoRepetidas = []
         self.frasesDosPalabrasNoRepetidas = []
         self.palabrasEtiquetadasRepetidas = []
-        self.autoresStemming = []
+        self.actoresStemming = []
         self.posicionesParaBorrarEnLemma=[]
         if(texto!=""):
             self.doc = self.nlp(texto)
@@ -70,9 +70,9 @@ class Resumen:
         self.etiquetadasRepetidas()
 
     def etiquetadasRepetidas(self):
-        autoresTotales = Counter(self.etiquetadasTodasNoMisc)
-        for at in autoresTotales:
-            if(autoresTotales[at] > 2):
+        actoresTotales = Counter(self.etiquetadasTodasNoMisc)
+        for at in actoresTotales:
+            if(actoresTotales[at] > 2):
                 self.palabrasEtiquetadasRepetidas.append(at)
         
     def lematizarPalabras(self):
@@ -87,11 +87,11 @@ class Resumen:
             for pc in self.palabrasClave:
                 if raicesPalabras[i] == pc:
                     if i+3 == len(raicesPalabras):
-                        self.autoresStemming.append(self.listaPalabrasLematizadas[i]+" "+self.listaPalabrasLematizadas[i+1])
+                        self.actoresStemming.append(self.listaPalabrasLematizadas[i]+" "+self.listaPalabrasLematizadas[i+1])
                     if i+2 >= len(raicesPalabras):
                         break
                     else:    
-                        self.autoresStemming.append(self.listaPalabrasLematizadas[i]+" "+self.listaPalabrasLematizadas[i+1]+" "+self.listaPalabrasLematizadas[i+2])
+                        self.actoresStemming.append(self.listaPalabrasLematizadas[i]+" "+self.listaPalabrasLematizadas[i+1]+" "+self.listaPalabrasLematizadas[i+2])
                     self.posicionesParaBorrarEnLemma.append(self.listaPalabrasLematizadas[i])
                     i+=1
                     break
@@ -122,19 +122,20 @@ class Resumen:
                 self.frasesDosPalabras.append(self.listaPalabrasLematizadas[i] + " " + self.listaPalabrasLematizadas[i-1])
                 self.frasesTresPalabras.append(self.listaPalabrasLematizadas[i] + " " + self.listaPalabrasLematizadas[i+1]+" " + self.listaPalabrasLematizadas[i+2])
                 i += 1
-        self.tresPalabrasNoRepetidas()
+        self.dosPalabrasNoRepetidas()
 
+    def dosPalabrasNoRepetidas(self):
+        frasesFrecuenteRepetidas = self.frasesDosPalabras
+        for i in range(0, len(frasesFrecuenteRepetidas), 2):
+                self.frasesDosPalabrasNoRepetidas.append(frasesFrecuenteRepetidas[i])
+"""
     def tresPalabrasNoRepetidas(self):
         jurgosTresPalabras = Counter(self.frasesTresPalabras).most_common(10)
         for j in jurgosTresPalabras:
             if(j[1]>1):
                 self.frasesTresPalabrasNoRepetidas.append(j)
         self.dosPalabrasNoRepetidas()
+"""
 
-    def dosPalabrasNoRepetidas(self):
-        frasesFrecuenteRepetidas = Counter(self.frasesDosPalabras).most_common(40)
-        for i in range(0, len(frasesFrecuenteRepetidas), 2):
-            if(frasesFrecuenteRepetidas[i][1]>1):
-                self.frasesDosPalabrasNoRepetidas.append(frasesFrecuenteRepetidas[i])
 
 

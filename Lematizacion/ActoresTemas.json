@@ -1,0 +1,610 @@
+{
+    "Actores y temas": [
+        {
+            "Actores": [
+                [
+                    "ministerio salud pública",
+                    30
+                ],
+                [
+                    "centros control prevención",
+                    19
+                ],
+                [
+                    "centro control prevención",
+                    18
+                ],
+                [
+                    "director oms tedros",
+                    15
+                ],
+                [
+                    "ministerio salud ecuador",
+                    14
+                ],
+                [
+                    "director organización mundial",
+                    14
+                ],
+                [
+                    "ministerio asuntos exteriores",
+                    11
+                ],
+                [
+                    "presidente chino jinping",
+                    11
+                ],
+                [
+                    "ministerio relaciones exteriores",
+                    10
+                ],
+                [
+                    "centro control enfermedades",
+                    9
+                ],
+                [
+                    "universidad hong kong",
+                    7
+                ],
+                [
+                    "instituto nacional investigación",
+                    7
+                ],
+                [
+                    "república democrática congo",
+                    6
+                ],
+                [
+                    "instituto nacional salud",
+                    6
+                ],
+                [
+                    "centro referencia nacional",
+                    6
+                ],
+                [
+                    "centro prevención enfermedades",
+                    6
+                ],
+                [
+                    "director tedros adhanom",
+                    6
+                ],
+                [
+                    "instituto nacional enfermedades",
+                    5
+                ],
+                [
+                    "ministerio japonés salud",
+                    4
+                ],
+                [
+                    "ministerio salud confirmar",
+                    4
+                ],
+                [
+                    "centro prevención control",
+                    4
+                ],
+                [
+                    "director vigilancia epidemiológica",
+                    4
+                ],
+                [
+                    "ministerio salud japonés",
+                    4
+                ],
+                [
+                    "república popular china",
+                    4
+                ],
+                [
+                    "presidente lenín moreno",
+                    4
+                ],
+                [
+                    "universidad california san",
+                    4
+                ],
+                [
+                    "centrar médico guardia",
+                    4
+                ],
+                [
+                    "ministerio salud comunicar",
+                    3
+                ],
+                [
+                    "ministerio salud descartar",
+                    3
+                ],
+                [
+                    "director centro nacional",
+                    3
+                ],
+                [
+                    "institutos nacionales salud",
+                    3
+                ],
+                [
+                    "director científico instituto",
+                    3
+                ],
+                [
+                    "centrar china china",
+                    3
+                ],
+                [
+                    "universidad johns hopkins",
+                    3
+                ],
+                [
+                    "ministerio sanidad español",
+                    3
+                ],
+                [
+                    "instituto ecuatoriano seguridad",
+                    3
+                ],
+                [
+                    "ministerio salud paciente",
+                    3
+                ],
+                [
+                    "presidente estadounidense donald",
+                    3
+                ],
+                [
+                    "director departamento preparación",
+                    3
+                ],
+                [
+                    "instituto pasteur francia",
+                    3
+                ],
+                [
+                    "presidente unidos donald",
+                    3
+                ],
+                [
+                    "universidad texas austin",
+                    3
+                ],
+                [
+                    "escuela museo teatro",
+                    3
+                ],
+                [
+                    "instituto diagnóstico referencia",
+                    3
+                ],
+                [
+                    "centro protección salud",
+                    2
+                ],
+                [
+                    "centrar china cuyo",
+                    2
+                ],
+                [
+                    "centrar china infectar",
+                    2
+                ],
+                [
+                    "director organización tedros",
+                    2
+                ],
+                [
+                    "director nacional vigilancia",
+                    2
+                ],
+                [
+                    "ministerio protocolar vigilancia",
+                    2
+                ]
+            ],
+            "Temas": [
+                [
+                    "kong hong",
+                    249
+                ],
+                [
+                    "mundial organización",
+                    216
+                ],
+                [
+                    "salud mundial",
+                    209
+                ],
+                [
+                    "organización mundial salud",
+                    190
+                ],
+                [
+                    "confirmar caso",
+                    188
+                ],
+                [
+                    "mundial salud oms",
+                    169
+                ],
+                [
+                    "oms salud",
+                    167
+                ],
+                [
+                    "continental china",
+                    137
+                ],
+                [
+                    "sanitario autoridad",
+                    136
+                ],
+                [
+                    "hubei provincia",
+                    135
+                ],
+                [
+                    "respiratorio síndrome",
+                    112
+                ],
+                [
+                    "sur corea",
+                    110
+                ],
+                [
+                    "coronavirus epidemia",
+                    110
+                ],
+                [
+                    "chino ciudad",
+                    107
+                ],
+                [
+                    "síntoma presentar",
+                    107
+                ],
+                [
+                    "agudo respiratorio",
+                    106
+                ],
+                [
+                    "chino ciudadano",
+                    93
+                ],
+                [
+                    "caso registrar",
+                    92
+                ],
+                [
+                    "coronavirus brotar",
+                    86
+                ],
+                [
+                    "síndrome respiratorio agudo",
+                    84
+                ],
+                [
+                    "prensar rodar",
+                    82
+                ],
+                [
+                    "princess diamond",
+                    81
+                ],
+                [
+                    "wuhan chino",
+                    80
+                ],
+                [
+                    "coronavirus caso",
+                    77
+                ],
+                [
+                    "febrero viernes",
+                    77
+                ],
+                [
+                    "wuhan ciudad",
+                    74
+                ],
+                [
+                    "febrero miércoles",
+                    74
+                ],
+                [
+                    "chino autoridad",
+                    73
+                ],
+                [
+                    "china wuhan",
+                    72
+                ],
+                [
+                    "wuhan coronavirus",
+                    71
+                ],
+                [
+                    "habitante millón",
+                    71
+                ],
+                [
+                    "wuhan neumonía",
+                    71
+                ],
+                [
+                    "nacional comisión",
+                    71
+                ],
+                [
+                    "asiático país",
+                    71
+                ],
+                [
+                    "ciudad chino wuhan",
+                    70
+                ],
+                [
+                    "personar millón",
+                    68
+                ],
+                [
+                    "caso confirmar",
+                    67
+                ],
+                [
+                    "febrero martes",
+                    66
+                ],
+                [
+                    "febrero jueves",
+                    66
+                ],
+                [
+                    "medir tomar",
+                    64
+                ],
+                [
+                    "caso número",
+                    64
+                ],
+                [
+                    "china coronavirus",
+                    63
+                ],
+                [
+                    "febrero lunes",
+                    63
+                ],
+                [
+                    "salud ministro",
+                    60
+                ],
+                [
+                    "coronavirus casar",
+                    60
+                ],
+                [
+                    "millón usd",
+                    60
+                ],
+                [
+                    "infectar personar",
+                    59
+                ],
+                [
+                    "enero jueves",
+                    59
+                ],
+                [
+                    "muerto dejar",
+                    59
+                ],
+                [
+                    "coronavirus propagación",
+                    58
+                ],
+                [
+                    "china personar",
+                    57
+                ],
+                [
+                    "coronavirus contagiar",
+                    57
+                ],
+                [
+                    "epicentro wuhan",
+                    55
+                ],
+                [
+                    "enero miércoles",
+                    54
+                ],
+                [
+                    "brotar epicentro",
+                    54
+                ],
+                [
+                    "público salud",
+                    54
+                ],
+                [
+                    "sospechoso casar",
+                    54
+                ],
+                [
+                    "enero viernes",
+                    53
+                ],
+                [
+                    "pública salud",
+                    53
+                ],
+                [
+                    "diamond crucero",
+                    53
+                ],
+                [
+                    "crucero diamond princess",
+                    53
+                ],
+                [
+                    "viral neumonía",
+                    51
+                ],
+                [
+                    "año hombre",
+                    51
+                ],
+                [
+                    "prevención control",
+                    50
+                ],
+                [
+                    "social redar",
+                    50
+                ],
+                [
+                    "unido reino",
+                    49
+                ],
+                [
+                    "ciudad wuhan",
+                    47
+                ],
+                [
+                    "enero lunes",
+                    47
+                ],
+                [
+                    "caso detectar",
+                    46
+                ],
+                [
+                    "prevención medir",
+                    45
+                ],
+                [
+                    "adhanom tedros",
+                    45
+                ],
+                [
+                    "contagiar personar",
+                    45
+                ],
+                [
+                    "sospechoso caso",
+                    45
+                ],
+                [
+                    "enfermedades prevención",
+                    44
+                ],
+                [
+                    "chino año",
+                    44
+                ],
+                [
+                    "coronavirus infectar",
+                    44
+                ],
+                [
+                    "severo agudo",
+                    43
+                ],
+                [
+                    "respiratorio agudo severo",
+                    43
+                ],
+                [
+                    "virus propagación",
+                    43
+                ],
+                [
+                    "salud nacional",
+                    43
+                ],
+                [
+                    "año vacación",
+                    43
+                ],
+                [
+                    "contagiar caso",
+                    43
+                ],
+                [
+                    "seco tos",
+                    42
+                ],
+                [
+                    "médico personal",
+                    42
+                ],
+                [
+                    "asiático gigante",
+                    42
+                ],
+                [
+                    "febrero sábado",
+                    42
+                ],
+                [
+                    "muerto causar",
+                    41
+                ],
+                [
+                    "chino turista",
+                    41
+                ],
+                [
+                    "personar muerte",
+                    40
+                ],
+                [
+                    "ghebreyesus adhanom",
+                    40
+                ],
+                [
+                    "tedros adhanom ghebreyesus",
+                    40
+                ],
+                [
+                    "respiratorio infección",
+                    40
+                ],
+                [
+                    "china procedente",
+                    40
+                ],
+                [
+                    "salud casar",
+                    39
+                ],
+                [
+                    "control prevención enfermedades",
+                    38
+                ],
+                [
+                    "internacional emergencia",
+                    38
+                ],
+                [
+                    "sanidad nacional",
+                    38
+                ],
+                [
+                    "frontero cerrar",
+                    38
+                ],
+                [
+                    "personar matar",
+                    37
+                ],
+                [
+                    "año chino",
+                    37
+                ]
+            ]
+        }
+    ]
+}
