@@ -77,7 +77,7 @@ class Resumen:
         
     def lematizarPalabras(self):
         self.listaPalabrasLematizadas = [w.lemma_.lower() for w in self.doc
-           if w.is_stop != True and w.is_punct != True and w.pos_ != 'CONJ' and w.pos_ != 'SPACE' and w.pos_ != 'NUM' and w.pos_ != 'ADP' and len(w) > 2]
+           if w.is_stop != True and w.is_punct != True and w.pos_ != 'CONJ' and w.pos_ != 'SPACE'  and w.pos_ != 'SYM'  and w.pos_ != 'SCONJ' and w.pos_ != 'PUNCT' and w.pos_ != 'INTJ' and w.pos_ != 'NUM' and w.pos_ != 'ADP' and len(w) > 2]
         self.raizPalabra()
 
     def raizPalabra(self):
@@ -92,6 +92,7 @@ class Resumen:
                         break
                     else:    
                         self.actoresStemming.append(self.listaPalabrasLematizadas[i]+" "+self.listaPalabrasLematizadas[i+1]+" "+self.listaPalabrasLematizadas[i+2])
+                        self.actoresStemming.append(self.listaPalabrasLematizadas[i]+" "+self.listaPalabrasLematizadas[i+1])
                     self.posicionesParaBorrarEnLemma.append(self.listaPalabrasLematizadas[i])
                     i+=1
                     break
