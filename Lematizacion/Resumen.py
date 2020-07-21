@@ -8,6 +8,7 @@ class Resumen:
     spanishstemmer=SnowballStemmer("spanish")
     palabrasClave = ['gobi', 'gobern', 'secretari', 'centr', 'univers', 'escuel', 'institut', 'ministeri','gobiern', 'alcald', 'republ', 'subsecretari', 'viceministeri', 'director', 'gerent', 'dueñ', 'propietari']
     doc = ''
+    ubicaciones=''
     listaPalabrasLematizadas=[]
     entMiscEvNacProdObr=[]
     etiquetadasTodasNoMisc=[]
@@ -38,7 +39,7 @@ class Resumen:
         if(nombreArchivoTxt!=""):
             self.palabrasClave=[]
             ruta='Git/Lematizacion/'+nombreArchivoTxt
-            with open(ruta) as file:
+            with open(ruta ,encoding="utf8") as file:
                 self.palabrasClave = [self.spanishstemmer.stem(i.strip()) for i in file]
                 print(self.palabrasClave)
 
@@ -57,7 +58,7 @@ class Resumen:
         self.posicionesParaBorrarEnLemma=[]
         if(texto!=""):
             self.doc = self.nlp(texto)
-            self.lematizarPalabras()
+            self.getUbicaciones()
 
 
 
@@ -74,10 +75,25 @@ class Resumen:
         for at in actoresTotales:
             if(actoresTotales[at] > 2):
                 self.palabrasEtiquetadasRepetidas.append(at)
+
+
+    def getUbicaciones(self):      
+        for en in self.doc.ents:
+            if en.label_=='ORG':        
+                self.actoresStemming.append(self.spanishstemmer.stem(en.text.strip()))
         
+        self.ubicaciones = [e[0] for e in self.doc.ents
+            if e.label_!='MISC' and e.label_!='PER' and e.label_!='ORG']
+        self.lematizarPalabras()
+
     def lematizarPalabras(self):
-        self.listaPalabrasLematizadas = [w.lemma_.lower() for w in self.doc
-           if w.is_stop != True and w.is_punct != True and w.pos_ != 'CONJ' and w.pos_ != 'SPACE'  and w.pos_ != 'SYM'  and w.pos_ != 'SCONJ' and w.pos_ != 'PUNCT' and w.pos_ != 'INTJ' and w.pos_ != 'NUM' and w.pos_ != 'ADP' and len(w) > 2]
+        for w in self.doc:
+            for u in self.ubicaciones:
+                if  w.text==u.text:
+                    continue
+            if (w.is_stop != True and w.is_punct != True and w.pos_ != 'CONJ' and w.pos_ != 'SPACE'  and w.pos_ != 'SYM'  and w.pos_ != 'SCONJ' and w.pos_ != 'PUNCT' and w.pos_ != 'INTJ' and w.pos_ != 'NUM' and w.pos_ != 'ADP' and len(w) > 2):
+                self.listaPalabrasLematizadas.append(w.lemma_.lower())
+
         self.raizPalabra()
 
     def raizPalabra(self):
