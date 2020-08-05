@@ -4,7 +4,6 @@ from bs4 import BeautifulSoup
 import numpy as np
 import pandas as pd
 import time
-import pandas as pd
 paginanumero = 214
 def get_news_elpais():
     
