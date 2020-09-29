@@ -1,5 +1,5 @@
 from flask import Flask, jsonify, request
-from flask_cors import CORS
+from flask_cors import CORS,cross_origin
 from bson import ObjectId
 
 #NYT
@@ -30,15 +30,15 @@ palabrasClaveRecibidas=['casa', 'mesa']
 arreglolinksnoticias=[]
 data ={} 
 data['noticias']=[]
-cantidad=10
+cantidad=1
 #NYT
 
 
 # Instantiation
 app = Flask(__name__)
+CORS(app, support_credentials=True)
 
 # Settings
-CORS(app)
 
 
 # Routes
@@ -48,17 +48,23 @@ def createUser():
   return request.json['name']
 
 
-@app.route('/', methods=['GET'])
+@app.route('/', methods=['POST', 'GET','OPTIONS'])
+@cross_origin(supports_credentials=True)
 def getUsers():
     return jsonify({"users":"asd"})
 
 
 # New York Time
 @app.route('/nyt', methods=['POST'])
-def obtenerNYT():
+@cross_origin(supports_credentials=True)
+def obtenerNYT():   
+  dataAT = {}
+  dataAT['Actores y temas'] = []
   query=request.json['query']
+  idioma=request.json['idioma']
   palabrasClaveRecibidas=request.json['palabrasClave']
   
+  print(request.json)
   with open('datanyt1.json','w', encoding='utf-8') as file:
       for n in range(cantidad):
           apinyt.execute(n,arreglolinksnoticias,query)
