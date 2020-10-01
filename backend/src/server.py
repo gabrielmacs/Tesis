@@ -20,7 +20,7 @@ nombreArchivoJSON = "ActoresTemas.json"
 rutaActualpy = os.path.dirname(os.path.abspath(__file__))
 pathArchivoJSON = os.path.join(rutaActualpy, nombreArchivoJSON)
 dataAT = {}
-dataAT['Actores y temas'] = []
+dataAT['ActoresTemas'] = []
 actoresTotales = []
 temasTotales =[] 
 palabrasClaveRecibidas=['casa', 'mesa']
@@ -59,9 +59,8 @@ def getUsers():
 @cross_origin(supports_credentials=True)
 def obtenerNYT():   
   dataAT = {}
-  dataAT['Actores y temas'] = []
+  dataAT['ActoresTemas'] = []
   query=request.json['query']
-  idioma=request.json['idioma']
   palabrasClaveRecibidas=request.json['palabrasClave']
   
   print(request.json)
@@ -97,7 +96,7 @@ def obtenerNYT():
     
   c2=Counter(actoresTotales).most_common(50)
 
-  dataAT['Actores y temas'].append({
+  dataAT['ActoresTemas'].append({
   'Actores': c2,
   'Temas': c1
   })
