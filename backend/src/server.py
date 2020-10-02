@@ -75,7 +75,7 @@ def obtenerNYT():
   print(request.json)
   
 
-  resumen=Resumen()
+  resumen=Resumen("en")
   resumen.procesarPalabrasClave(palabrasClaveRecibidas)
   for i,noticia in enumerate(data['noticias']):
       print(i,"___________________________________________________________________")
