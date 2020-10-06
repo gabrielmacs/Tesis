@@ -34,14 +34,16 @@ def execute(a,arregloarticulos,query):
     if(respuestajson['total']>0):
       noticiasjson=respuestajson['results']
       #print(noticiasjson[0])
-    
+      i = 0
       for documento in noticiasjson:
           arregloarticulos.append(documento['bibjson'])  
-          print(arregloarticulos[0]['abstract'])
-          data['datadoaj'].append({'text': arregloarticulos[0]['abstract']})  
+          #print(documento['bibjson'])
+          data['datadoaj'].append({'text': arregloarticulos[i]['abstract']})  
+          i = i + 1
     else:
       print("No se encontro resultados")  
-  print(len(arregloarticulos))
+  #print(len(arregloarticulos))
+  #print(arregloarticulos[1]['abstract'])
 
 '''
 #execute(1,arregloarticulos,"Shadow")
