@@ -2,7 +2,7 @@ import apidoaj as apidoaj
 import json
 import codecs
 
-cantidad=10
+cantidad=1
 query="Energia"
 '''
 with open('datadoaj.json','w', encoding='utf-8') as file:

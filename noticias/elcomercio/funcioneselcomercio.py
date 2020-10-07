@@ -5,9 +5,9 @@ import codecs
 arreglolinksnoticias=[]
 data ={} 
 data['noticias']=[]
-cantidad=10
+cantidad=2
 #el numero de paginas a buscar cada una tiene 20 noticias
-query="Vamos a ganar"
+query="covid"
 with open('dataelcomercio.json','w', encoding='utf-8') as file:
     for n in range(cantidad):
         apicomercio.execute(n,arreglolinksnoticias,query)
