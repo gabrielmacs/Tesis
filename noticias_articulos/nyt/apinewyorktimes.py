@@ -5,7 +5,7 @@
 import time
 import requests
 import re
-arreglolinksnoticias=[]
+#arreglolinksnoticias=[]
 def execute(a,arreglolinksnoticias,query):
   print(query)
   print(re.sub(" ","%20",query))
@@ -22,7 +22,7 @@ def execute(a,arreglolinksnoticias,query):
   #print(request.json())
   
   if(request.status_code==200):
-    time.sleep(6)  
+    #time.sleep(6)  
     respuestajson =request.json()
     noticiasjson=respuestajson['response']
     for documento in noticiasjson['docs']:
