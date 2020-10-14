@@ -11,9 +11,9 @@ arregloarticulos=[]
 data ={} 
 data['datadoaj']=[]
 cantidad=10
-query="Energia"
+#query="Energia"
 
-def execute(a,arregloarticulos,query):
+def execute(a,arregloarticulos,query,idioma):
   print(query)
   print(re.sub(" ","%20",query))
   queryf=re.sub(" ","%20",query)
@@ -34,16 +34,26 @@ def execute(a,arregloarticulos,query):
     if(respuestajson['total']>0):
       noticiasjson=respuestajson['results']
       #print(noticiasjson[0])
-      i = 0
+      
       for documento in noticiasjson:
-          arregloarticulos.append(documento['bibjson'])  
+          articulo = documento['bibjson']
+          metaarticulo = articulo['journal']
+          arregloarticulos.append(articulo)  
           #print(documento['bibjson'])
-          data['datadoaj'].append({'text': arregloarticulos[i]['abstract']})  
-          i = i + 1
+          if('abstract' in articulo  ):
+            #and 'EN' in articulo['language']
+            if( idioma in metaarticulo['language']):
+              print(metaarticulo['language'])
+              data['datadoaj'].append({'text': articulo['abstract']})
+              
+            
+            #arregloarticulos.pop()  
+          
     else:
       print("No se encontro resultados")  
-  #print(len(arregloarticulos))
+  print(len(arregloarticulos))
   #print(arregloarticulos[1]['abstract'])
+ 
 
 '''
 #execute(1,arregloarticulos,"Shadow")
