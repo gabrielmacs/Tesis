@@ -10,7 +10,7 @@ import codecs
 arregloarticulos=[]
 data ={} 
 data['datadoaj']=[]
-cantidad=10
+#cantidad=10
 #query="Energia"
 
 def execute(a,arregloarticulos,query,idioma):
@@ -18,7 +18,8 @@ def execute(a,arregloarticulos,query,idioma):
   print(re.sub(" ","%20",query))
   queryf=re.sub(" ","%20",query)
   paginabusqueda=str(a)  
-  requestUrl = "https://doaj.org/api/v1/search/articles/(title%3A%22"+queryf+"%22)%20OR%20(bibjson.abstract%3A%22"+queryf+"%22)?page="+paginabusqueda+"&pageSize=100&sort=year%3Adesc"
+  print("********************Numero de pagina"+str(a)) 
+  requestUrl = "https://doaj.org/api/v1/search/articles/(title%3A%22"+queryf+"%22)%20OR%20(bibjson.abstract%3A%22"+queryf+"%22)?page="+paginabusqueda+"&pageSize=100"
   print(requestUrl)
   requestHeaders = {
     "Accept": "application/json"
@@ -30,7 +31,7 @@ def execute(a,arregloarticulos,query,idioma):
   
   if(request.status_code==200):
     respuestajson =request.json()
-    print(respuestajson['total'])
+    print("total archivos "+str(respuestajson['total']))
     if(respuestajson['total']>0):
       noticiasjson=respuestajson['results']
       #print(noticiasjson[0])
@@ -43,7 +44,8 @@ def execute(a,arregloarticulos,query,idioma):
           if('abstract' in articulo  ):
             #and 'EN' in articulo['language']
             if( idioma in metaarticulo['language']):
-              print(metaarticulo['language'])
+              #i = i + 1
+              #print(metaarticulo['language'])
               data['datadoaj'].append({'text': articulo['abstract']})
               
             
