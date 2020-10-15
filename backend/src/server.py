@@ -101,8 +101,80 @@ def obtenerNYT():
   for i,noticia in enumerate(data['noticias']):
       print(i,"___________________________________________________________________")
       
-      if (noticia['text']!=[]):
-          resumen.procesarTexto(noticia['text'][0])
+      if (noticia['text']!=""):
+          resumen.procesarTexto(noticia['text'])
+   
+      
+          actoresTotales.extend(resumen.actoresStemming)
+
+          temasTotales.extend(resumen.frasesDosPalabrasNoRepetidas)
+          temasTotales.extend(resumen.frasesTresPalabras)
+    
+
+  c1=Counter(temasTotales).most_common(100)
+
+
+    
+  c2=Counter(actoresTotales).most_common(50)
+
+  dataAT['ActoresTemas'].append({
+  'Actores': c2,
+  'Temas': c1
+  })
+
+
+
+  return dataAT
+
+
+#FUENTES EN INGLES
+#union de todas las feuntes en ingles
+@app.route('/fuentesIngles', methods=['POST'])
+@cross_origin(supports_credentials=True)
+def obtenerFuentesIngles():   
+ 
+
+  dataAT = {}
+  arreglolinksnoticias=[]
+  data ={} 
+  dataAT['ActoresTemas'] = []
+  query=request.json['query']
+  palabrasClaveRecibidas=request.json['palabrasClave']
+  arreglolinksnoticias=[] 
+  data ={} 
+  data['noticias']=[]
+  actoresTotales=[]
+  temasTotales=[]
+  c1=[]
+  c2=[]
+
+  if(request.json['nyt']=='true'):
+    with open('datanyt1.json','w', encoding='utf-8') as file:
+        for n in range(cantidad):
+            apinyt.execute(n,arreglolinksnoticias,query)
+            for url in arreglolinksnoticias:  
+                data['noticias'].append({'text':nnyt.get_news_nyt(url)})    
+                #print(nnyt.get_news_nyt(url))    
+        print(len(arreglolinksnoticias))
+        json.dump(data,file,indent=4,ensure_ascii=False)
+  print(request.json)
+  
+
+  if(request.json['doaj']=='true'):
+    with open('datadoaj.json','w', encoding='utf-8') as file:
+          for n in range(cantidad):  
+              apidoaj.execute(n,apidoaj.arregloarticulos,query) 
+          data['noticias'].extend(apidoaj.data["datadoaj"])
+          json.dump(data['noticias'],file,indent=4,ensure_ascii=False) 
+
+  print(data['noticias'])
+  resumen=Resumen("en")
+  resumen.procesarPalabrasClave(palabrasClaveRecibidas)
+  for i,noticia in enumerate(data['noticias']):
+      print(i,"___________________________________________________________________")
+      
+      if (noticia['text']!=""):
+          resumen.procesarTexto(noticia['text'])
    
       
           actoresTotales.extend(resumen.actoresStemming)
@@ -128,6 +200,8 @@ def obtenerNYT():
 
 
 
+
+
 # DOAJ
 @app.route('/doaj', methods=['POST'])
 @cross_origin(supports_credentials=True)
@@ -145,7 +219,7 @@ def obtenerDOAJ():
   c2=[]
   print(request.json)
   with open('datadoaj.json','w', encoding='utf-8') as file:
-        for n in range(cantidad):  
+        for n in range(cantidad+1):  
             apidoaj.execute(n,apidoaj.arregloarticulos,query) 
         data['noticias']= apidoaj.data["datadoaj"]
         json.dump(apidoaj.data,file,indent=4,ensure_ascii=False) 
@@ -198,22 +272,23 @@ def obtenerComercio():
   temasTotales=[]
   c1=[]
   c2=[]
+  arreglolinksnoticias=[]
 
 
   print(request.json)
 
 
   with open('dataelcomercio.json','w', encoding='utf-8') as file:
-    for n in range(cantidad +1):
+    for n in range(cantidad +3):
         apicomercio.execute(n,arreglolinksnoticias,query)
         for url in arreglolinksnoticias:
-            data['noticias'].append({'text':ncomercio.get_news_elcomercio(url)})    
+            data['noticias'].append({'text':[ncomercio.get_news_elcomercio(url)]})    
             #print(nnyt.get_news_nyt(url))    
             #print(len(arreglolinksnoticias))
     json.dump(data,file,indent=4,ensure_ascii=False)
 
 
-  resumen=Resumen("en")
+  resumen=Resumen("es")
   resumen.procesarPalabrasClave(palabrasClaveRecibidas)
   for i,noticia in enumerate(data['noticias']):
       print(i,"___________________________________________________________________")
@@ -246,3 +321,6 @@ def obtenerComercio():
 
 if __name__ == "__main__":
     app.run(debug=True)
+
+
+

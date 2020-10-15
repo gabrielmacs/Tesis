@@ -1,4 +1,3 @@
-<<<<<<< HEAD:noticias/elcomercio/funcioneselcomercio.py
 import apielcomercio as apicomercio
 import corpuscomercio as ncomercio
 import json

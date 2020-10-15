@@ -41,14 +41,6 @@ def execute(a,arregloarticulos,query,idioma):
           metaarticulo = articulo['journal']
           arregloarticulos.append(articulo)  
           #print(documento['bibjson'])
-<<<<<<< HEAD
-          data['datadoaj'].append({'text': arregloarticulos[i]['abstract']})  
-          i = i + 1
-    
-    else:
-      print("No se encontro resultados")  
-  print(len(arregloarticulos))
-=======
           if('abstract' in articulo  ):
             #and 'EN' in articulo['language']
             if( idioma in metaarticulo['language']):
@@ -64,7 +56,6 @@ def execute(a,arregloarticulos,query,idioma):
   print(len(arregloarticulos))
   #print(arregloarticulos[1]['abstract'])
  
->>>>>>> e318f6c9668eaa37a0e303606c996c236e13f17b
 
 '''
 #execute(1,arregloarticulos,"Shadow")

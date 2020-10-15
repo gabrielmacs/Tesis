@@ -10,18 +10,16 @@ import codecs
 arregloarticulos=[]
 data ={} 
 data['datadoaj']=[]
-cantidad=10
-query=""
+#cantidad=10
+#query="Energia"
 
-def execute(a,arregloarticulos,queryRecibido):
-  data['datadoaj']=[]
-  print(queryRecibido)
+def execute(a,arregloarticulos,query,idioma):
+  print(query)
   print(re.sub(" ","%20",query))
-  queryf=re.sub(" ","%20",queryRecibido)
-  print(queryf+"queryfffffffffff")
-
+  queryf=re.sub(" ","%20",query)
   paginabusqueda=str(a)  
-  requestUrl = "https://doaj.org/api/v1/search/articles/(title%3A%22"+queryf+"%22)%20OR%20(bibjson.abstract%3A%22"+queryf+"%22)?page="+paginabusqueda+"&pageSize=100&sort=year%3Adesc"
+  print("********************Numero de pagina"+str(a)) 
+  requestUrl = "https://doaj.org/api/v1/search/articles/(title%3A%22"+queryf+"%22)%20OR%20(bibjson.abstract%3A%22"+queryf+"%22)?page="+paginabusqueda+"&pageSize=100"
   print(requestUrl)
   requestHeaders = {
     "Accept": "application/json"
@@ -33,22 +31,31 @@ def execute(a,arregloarticulos,queryRecibido):
   
   if(request.status_code==200):
     respuestajson =request.json()
-    print(respuestajson['total'])
+    print("total archivos "+str(respuestajson['total']))
     if(respuestajson['total']>0):
       noticiasjson=respuestajson['results']
       #print(noticiasjson[0])
-      i = 0
+      
       for documento in noticiasjson:
           articulo = documento['bibjson']
+          metaarticulo = articulo['journal']
           arregloarticulos.append(articulo)  
           #print(documento['bibjson'])
-          if('abstract' in articulo):
+          if('abstract' in articulo  ):
+            #and 'EN' in articulo['language']
+            if( idioma in metaarticulo['language']):
+              #i = i + 1
+              #print(metaarticulo['language'])
+              data['datadoaj'].append({'text': articulo['abstract']})
+              
+            
+            #arregloarticulos.pop()  
           
-            data['datadoaj'].append({'text': articulo['abstract']}) 
-    
     else:
       print("No se encontro resultados")  
   print(len(arregloarticulos))
+  #print(arregloarticulos[1]['abstract'])
+ 
 
 '''
 #execute(1,arregloarticulos,"Shadow")

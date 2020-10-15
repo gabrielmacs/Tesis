@@ -16,7 +16,7 @@ def get_news_nyt(url):
     article_content = article.content
     soup_article = BeautifulSoup(article_content, 'html5lib')
     body = soup_article.find_all('section', class_='meteredContent')
-    news_contents = []
+    news_contents=''
     if(body):
         print("Rasgando texto...")
         x = body[0].find_all('p')
@@ -26,9 +26,9 @@ def get_news_nyt(url):
         for p in np.arange(0, len(x)):
             paragraph = x[p].get_text()
             list_paragraphs.append(paragraph)
-            final_article = " ".join(list_paragraphs)
+            final_article = "".join(list_paragraphs)
            
-        news_contents.append(final_article)
+        news_contents=final_article
 # df_show_info
     
     return (news_contents)
