@@ -7,13 +7,12 @@ import requests
 import re
 import json
 import codecs
-arregloarticulos=[]
 data ={} 
 data['datadoaj']=[]
 #cantidad=10
 #query="Energia"
 
-def execute(a,arregloarticulos,query,idioma):
+def execute(a,query,idioma):
   print(query)
   print(re.sub(" ","%20",query))
   queryf=re.sub(" ","%20",query)
@@ -39,7 +38,7 @@ def execute(a,arregloarticulos,query,idioma):
       for documento in noticiasjson:
           articulo = documento['bibjson']
           metaarticulo = articulo['journal']
-          arregloarticulos.append(articulo)  
+         
           #print(documento['bibjson'])
           if('abstract' in articulo  ):
             #and 'EN' in articulo['language']
@@ -53,7 +52,7 @@ def execute(a,arregloarticulos,query,idioma):
           
     else:
       print("No se encontro resultados")  
-  print(len(arregloarticulos))
+  
   #print(arregloarticulos[1]['abstract'])
  
 

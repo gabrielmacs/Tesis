@@ -2,10 +2,9 @@ import apidoaj as apidoaj
 import json
 import codecs
 
-cantidad=10
+cantidad=11
 query="Cama"
 idioma= "ES"
-
 '''
 with open('datadoaj.json','w', encoding='utf-8') as file:
     for n in range(cantidad):
@@ -17,12 +16,14 @@ with open('datadoaj.json','w', encoding='utf-8') as file:
     print(len(arregloarticulos))
 '''
  #execute(1,arregloarticulos,"Shadow")
-with open('datadoajx.json','w', encoding='utf-8') as file:
-    for n in range(cantidad): 
+for n in range(1,cantidad): 
        
-        apidoaj.execute(n,apidoaj.arregloarticulos,query,idioma)  
-        apidoaj.arregloarticulos = []
+    apidoaj.execute(n,query,idioma)  
+
+with open('datadoaj.json','w', encoding='utf-8') as file:
+    
     json.dump(apidoaj.data,file,indent=4,ensure_ascii=False)  
   #print(nnyt.get_news_nyt(url))    
 
 
+    
