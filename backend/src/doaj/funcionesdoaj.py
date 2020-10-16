@@ -2,7 +2,7 @@ import apidoaj as apidoaj
 import json
 import codecs
 
-cantidad=10
+cantidad=5
 query="Cama"
 idioma= "ES"
 
