@@ -20,7 +20,7 @@ with open('datadoaj.json','w', encoding='utf-8') as file:
 with open('datadoajx.json','w', encoding='utf-8') as file:
     for n in range(cantidad): 
        
-        apidoaj.execute(n,apidoaj.arregloarticulos,query,idioma)  
+        apidoaj.execute(n,apidoaj.arregloarticulos,query,"EN")  
         apidoaj.arregloarticulos = []
     json.dump(apidoaj.data,file,indent=4,ensure_ascii=False)  
   #print(nnyt.get_news_nyt(url))    

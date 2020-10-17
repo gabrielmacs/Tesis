@@ -10,8 +10,7 @@ from nltk import SnowballStemmer
 class Resumen:
     nlp = spacy.load("en_core_web_sm")
     spanishstemmer = SnowballStemmer("english")
-    palabrasClave = ['gobi', 'gobern', 'secretari', 'centr', 'univers', 'escuel', 'institut', 'ministeri',
-                     'gobiern', 'alcald', 'republ', 'subsecretari', 'viceministeri', 'director', 'gerent', 'dueñ', 'propietari']
+    palabrasClave = []
     doc = ''
     ubicaciones = ''
     listaPalabrasLematizadas = []
@@ -28,10 +27,10 @@ class Resumen:
     posicionesParaBorrarEnLemma = []
 
     def __init__(self, idioma):
-        if(idioma == "en"):
+        if(idioma == "EN"):
             self.nlp = spacy.load("en_core_web_sm")
             self.spanishstemmer = SnowballStemmer("english")
-        elif(idioma == "es"):
+        elif(idioma == "ES"):
             self.nlp = spacy.load("es_core_news_sm")
             self.spanishstemmer = SnowballStemmer("spanish")
 

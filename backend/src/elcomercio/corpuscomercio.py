@@ -33,7 +33,7 @@ def get_news_elcomercio(url):
             list_paragraphs.append(paragraph)
             final_article = " ".join(list_paragraphs)             
         #print(final_article)   
-        news_contents.append(final_article)
+        news_contents=final_article
 # df_show_info
     
     return (news_contents)
