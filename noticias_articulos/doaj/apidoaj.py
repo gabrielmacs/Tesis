@@ -30,10 +30,9 @@ def execute(a,query,idioma,orden):
   
   if(request.status_code==200):
     respuestajson =request.json()
-    print("total archivos "+str(respuestajson['total']))
     if(respuestajson['total']!=0):
       noticiasjson=respuestajson['results']
-      print("sdads")
+      
       #print(noticiasjson[0])
       for documento in noticiasjson:
           articulo = documento['bibjson']
@@ -46,11 +45,10 @@ def execute(a,query,idioma,orden):
             #i = i + 1
             #print(metaarticulo['language'])
             data['datadoaj'].append({'text': articulo['abstract']})
-            print(articulo['abstract'])  
+            #print(articulo['abstract'])  
             
             #arregloarticulos.pop()  
-          else:
-            print(articulo['abstract'])
+          
     else:
       print("No se encontro resultados")  
   
