@@ -163,12 +163,17 @@ def obtenerPalabrasRepetidas():
 
   if(request.json['doaj']==True):
     idioma='EN'
-    with open('datadoaj.json','w', encoding='utf-8') as file:
-          for n in range(cantidad+1):  
-              apidoaj.execute(n,apidoaj.arregloarticulos,query,"EN")
-              apidoaj.arregloarticulos = []
-          data['noticias'].extend(apidoaj.data["datadoaj"])
-          json.dump(data['noticias'],file,indent=4,ensure_ascii=False) 
+    if(apidoaj.cantidadarticulos2(1,query,idioma)>20):
+        for n in range(1,apidoaj.cantidadpagina(1,query,idioma)):       
+            apidoaj.execute(n,query,idioma,"asc")  
+        for m in range(1,apidoaj.cantidadpagina(1,query,idioma)):       
+            apidoaj.execute(m,query,idioma,"desc")
+    else:
+        for m in range(1,apidoaj.cantidadpagina(1,query,idioma)):       
+            apidoaj.execute(m,query,idioma,"desc")
+    with open('datadoajx.json','w', encoding='utf-8') as file:
+        data['noticias'].extend(apidoaj.data["datadoaj"])
+        json.dump(apidoaj.data,file,indent=4,ensure_ascii=False)  
 
   if(request.json['comercio']==True):
     idioma='ES'
@@ -183,12 +188,20 @@ def obtenerPalabrasRepetidas():
 
   if(request.json['doajes']==True):
     idioma='ES'
-    with open('datadoajes.json','w', encoding='utf-8') as file:
-          for n in range(cantidad+1):  
-              apidoaj.execute(n,apidoaj.arregloarticulos,query,"ES")
-              apidoaj.arregloarticulos = []
-          data['noticias'].extend(apidoaj.data["datadoaj"])
-          json.dump(data['noticias'],file,indent=4,ensure_ascii=False) 
+    if(apidoaj.cantidadarticulos2(1,query,idioma)>20):
+        for n in range(1,apidoaj.cantidadpagina(1,query,idioma)):       
+            apidoaj.execute(n,query,idioma,"asc")  
+        for m in range(1,apidoaj.cantidadpagina(1,query,idioma)):       
+            apidoaj.execute(m,query,idioma,"desc")
+    else:
+        for m in range(1,apidoaj.cantidadpagina(1,query,idioma)):       
+            apidoaj.execute(m,query,idioma,"desc")
+    with open('datadoajx.json','w', encoding='utf-8') as file:
+        data['noticias'].extend(apidoaj.data["datadoaj"])
+        json.dump(apidoaj.data,file,indent=4,ensure_ascii=False)  
+
+    
+
 
 
   print(data['noticias'])

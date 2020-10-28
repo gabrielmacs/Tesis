@@ -28,9 +28,11 @@ class Resumen:
 
     def __init__(self, idioma):
         if(idioma == "EN"):
+            print("idioma: Ingles++++++++++++++++++++++++++++")
             self.nlp = spacy.load("en_core_web_sm")
             self.spanishstemmer = SnowballStemmer("english")
         elif(idioma == "ES"):
+            print("idioma: español***********************")
             self.nlp = spacy.load("es_core_news_sm")
             self.spanishstemmer = SnowballStemmer("spanish")
 
