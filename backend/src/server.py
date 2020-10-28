@@ -211,13 +211,16 @@ def obtenerPalabrasRepetidas():
       print(i,"___________________________________________________________________")
       
       if (noticia['text']!=""):
-          resumen.procesarTexto(noticia['text'])
+          if (noticia['text'][0]=="&" or noticia['text'][0]=="<" ):
+            print(noticia['text'][0]+"----------")
+          else:
+            resumen.procesarTexto(noticia['text'])
    
       
-          actoresTotales.extend(resumen.actoresStemming)
+            actoresTotales.extend(resumen.actoresStemming)
 
-          temasTotales.extend(resumen.frasesDosPalabrasNoRepetidas)
-          temasTotales.extend(resumen.frasesTresPalabras)
+            temasTotales.extend(resumen.frasesDosPalabrasNoRepetidas)
+            temasTotales.extend(resumen.frasesTresPalabras)
     
 
   c1=Counter(temasTotales).most_common(100)
