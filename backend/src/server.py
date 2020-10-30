@@ -10,17 +10,15 @@ import codecs
 #NYT
 #DOAJ
 import doaj.apidoaj as apidoaj
-import json
-import codecs
 #DOAJ
+#springer
+import apispringer.apispringer as apispringer
+#springer
 #El comercio
 import elcomercio.apielcomercio as apicomercio
 import elcomercio.corpuscomercio as ncomercio
-import json
-import codecs
 #EL comercio
 #procesamiento de textos
-import json
 import os
 from collections import Counter
 from Lematizacion.resumen import Resumen
@@ -149,7 +147,6 @@ def obtenerPalabrasRepetidas():
   c2=[]
 
   print(request.json)
-
   if(request.json['nyt']==True):
     idioma='EN'
     with open('datanyt1.json','w', encoding='utf-8') as file:
@@ -176,6 +173,7 @@ def obtenerPalabrasRepetidas():
         json.dump(apidoaj.data,file,indent=4,ensure_ascii=False)  
 
   if(request.json['comercio']==True):
+    print("el coemrcaicaoslnc kbnjk")
     idioma='ES'
     with open('dataelcomercio.json','w', encoding='utf-8') as file:
       for n in range(cantidad +3):
@@ -201,10 +199,21 @@ def obtenerPalabrasRepetidas():
         json.dump(apidoaj.data,file,indent=4,ensure_ascii=False)  
 
     
+  if(request.json['springer']==True):
+    idioma='EN'
+    cantidadspringer=apispringer.cantidadarticulos(1,query)
+    for n in range(cantidadspringer): 
+        #apispringer.arregloarticulos = []
+        apispringer.execute(n,query)  
+    with open('dataspring.json','w', encoding='utf-8') as file:
+       data['noticias'].extend(apispringer.data["dataspringer"])
+       json.dump(apispringer.data,file,indent=4,ensure_ascii=False)  
+      #print(nnyt.get_news_nyt(url))    
 
 
 
-  print(data['noticias'])
+
+  print(request.json['comercio'])
   resumen=Resumen(idioma)
   resumen.procesarPalabrasClave(palabrasClaveRecibidas)
   for i,noticia in enumerate(data['noticias']):
