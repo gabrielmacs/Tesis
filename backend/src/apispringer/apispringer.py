@@ -1,7 +1,4 @@
-# Demo code sample. Not indended for production use.
 
-# See instructions for installing Requests module for Python
-# http://docs.python-requests.org/en/master/user/install/
 import time
 import requests
 import re
@@ -59,15 +56,12 @@ def execute(a,query):
   print(len(arregloarticulos))
   #print(arregloarticulos[1]['abstract'])
   request.close()
-def cantidadarticulos(a,query):
+def cantidadarticulos(query):
   print(query)
   print(re.sub(" ","%20",query))
   queryf=re.sub(" ","%20",query)
-  r = (a * 100 + 1)
-  paginabusqueda=str(r)  
-
-  print("********************Numero de pagina"+str(a)) 
-  requestUrl = "http://api.springernature.com/meta/v2/json?q=(title%3A%22"+queryf+"%22%20OR%20keyword%3A%22"+queryf+"%22)&p=100&s="+paginabusqueda+"&api_key=3baefd29b9ce65a833af4889a0cacbed"
+  
+  requestUrl = "http://api.springernature.com/meta/v2/json?q=(title%3A%22"+queryf+"%22%20OR%20keyword%3A%22"+queryf+"%22)&p=0&s=0&api_key=3baefd29b9ce65a833af4889a0cacbed"
   #"http://api.springernature.com/meta/v2/json?q=(title%3A%22"+queryf+"%22%20OR%20keyword%3A%22"+queryf+"%22)&p=100&s="+paginabusqueda+"&api_key=3baefd29b9ce65a833af4889a0cacbed"
   print(requestUrl)
   requestHeaders = {
@@ -84,15 +78,9 @@ def cantidadarticulos(a,query):
     numarticulo = respuestajson['result']
     
     numerito =numarticulo[0]
-    
-
+  else:
+    numerito = 0
+    print("No se encontro resultados")    
+  
   return (((int(numerito['total']))//100)+1)  
 
-'''
-#execute(1,arregloarticulos,"Shadow")
-with open('datadoaj.json','w', encoding='utf-8') as file:
-    for n in range(cantidad):  
-        execute(n,arregloarticulos,query)  
-    json.dump(data,file,indent=4,ensure_ascii=False)  
-  #print(nnyt.get_news_nyt(url))    
-'''

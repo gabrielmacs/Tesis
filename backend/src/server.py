@@ -201,7 +201,7 @@ def obtenerPalabrasRepetidas():
     
   if(request.json['springer']==True):
     idioma='EN'
-    cantidadspringer=apispringer.cantidadarticulos(1,query)
+    cantidadspringer=apispringer.cantidadarticulos(query)
     for n in range(cantidadspringer): 
         #apispringer.arregloarticulos = []
         apispringer.execute(n,query)  
