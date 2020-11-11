@@ -85,9 +85,9 @@ class Resumen:
 
     def getUbicaciones(self):
         for en in self.doc.ents:
-            if en.label_ == 'ORG':
+            if en.label_ == 'ORG' or en.label_ == 'PER' or en.label_ == 'MISC':
                 self.actoresStemming.append(
-                    self.spanishstemmer.stem(en.text.strip()))
+                    en.text.strip())
 
         self.ubicaciones = [e[0] for e in self.doc.ents
                             if e.label_ != 'MISC' and e.label_ != 'PER' and e.label_ != 'ORG']

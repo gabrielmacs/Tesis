@@ -17,15 +17,15 @@ actoresTotales = []
 temasTotales =[] 
 palabrasClaveRecibidas=['casa', 'mesa']
 
-with open('backend/src/datanyt1.json',encoding="utf8") as file:
+with open('dataelcomercio.json',encoding="utf8") as file:
     data = json.load(file)
-    resumen=Resumen()
+    resumen=Resumen("ES")
     resumen.procesarPalabrasClave(palabrasClaveRecibidas)
     for i,noticia in enumerate(data['noticias']):
         print(i,"___________________________________________________________________")
         
         if (noticia['text']!=[]):
-            resumen.procesarTexto(noticia['text'][0])
+            resumen.procesarTexto(noticia['text'])
      
         
             actoresTotales.extend(resumen.actoresStemming)
@@ -39,6 +39,7 @@ with open('backend/src/datanyt1.json',encoding="utf8") as file:
 
     
     c2=Counter(actoresTotales).most_common(50)
+    print(temasTotales)
 
     dataAT['Actores y temas'].append({
     'Actores': c2,
