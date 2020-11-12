@@ -39,7 +39,7 @@ palabrasClaveRecibidas=['casa', 'mesa']
 arreglolinksnoticias=[]
 data ={} 
 data['noticias']=[]
-cantidad=1
+cantidad=3
 #NYT
 
 
