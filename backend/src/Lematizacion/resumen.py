@@ -22,11 +22,13 @@ class Resumen:
     frasesDosPalabrasNoRepetidas = []
     palabrasEtiquetadasRepetidas = []
     actoresStemming = []
+    idioma=''
 
     # variables auxiliares
     posicionesParaBorrarEnLemma = []
 
     def __init__(self, idioma):
+        self.idioma=idioma
         if(idioma == "EN"):
             print("idioma: Ingles++++++++++++++++++++++++++++")
             self.nlp = spacy.load("en_core_web_sm")
@@ -70,6 +72,7 @@ class Resumen:
             self.getUbicaciones()
 
     def etiquetarPalabras(self):
+
         for e in self.doc.ents:
             if e .label_ == 'MISC':
                 self.entMiscEvNacProdObr.append(e)
@@ -84,10 +87,16 @@ class Resumen:
                 self.palabrasEtiquetadasRepetidas.append(at)
 
     def getUbicaciones(self):
-        for en in self.doc.ents:
-            if en.label_ == 'ORG' or en.label_ == 'PER' or en.label_ == 'MISC':
-                self.actoresStemming.append(
-                    en.text.strip())
+        if(self.idioma == "EN"):
+            for en in self.doc.ents:
+                if en.label_ == 'ORG' or en.label_ == 'PER' or en.label_ == 'MISC' :
+                    self.actoresStemming.append(
+                        en.text.strip())
+        elif(self.idioma == "ES"):       
+            for en in self.doc.ents:
+                if en.label_ == 'ORG' :
+                    self.actoresStemming.append(
+                        en.text.strip())
 
         self.ubicaciones = [e[0] for e in self.doc.ents
                             if e.label_ != 'MISC' and e.label_ != 'PER' and e.label_ != 'ORG']
