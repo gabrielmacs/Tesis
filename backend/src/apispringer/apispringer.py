@@ -57,6 +57,7 @@ def execute(a,query):
   #print(arregloarticulos[1]['abstract'])
   request.close()
 def cantidadarticulos(query):
+  limite = 5000
   print(query)
   print(re.sub(" ","%20",query))
   queryf=re.sub(" ","%20",query)
@@ -74,13 +75,18 @@ def cantidadarticulos(query):
   
   if(request.status_code==200):
     respuestajson =request.json()
-    
     numarticulo = respuestajson['result']
-    
     numerito =numarticulo[0]
+    numeritopagina =(int(numerito['total']))
+    if(numeritopagina <= limite):
+      numeritoaux = numeritopagina
+    else:
+      numeritoaux =  limite
+    
   else:
-    numerito = 0
-    print("No se encontro resultados")    
+    numeritoaux = 0
+    print("No se encontro resultados") 
+     
   
-  return (((int(numerito['total']))//100)+1)  
+  return (((numeritoaux)//100)+1)  
 
