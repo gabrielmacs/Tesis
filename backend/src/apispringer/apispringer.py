@@ -10,6 +10,8 @@ arregloarticulos=[]
 data ={} 
 data['dataspringer']=[]
 def execute(a,query):
+  ##agregaresto
+  data['dataspringer']=[]
   respuestajson = []
   arregloarticulos=[]
   articulosjson= []
