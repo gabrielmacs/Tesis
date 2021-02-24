@@ -3,7 +3,7 @@ import json
 import codecs
 
 
-query="Pes"
+query="covid"
 cantidad=apispringer.cantidadarticulos(query)
 
 

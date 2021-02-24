@@ -11,7 +11,7 @@ data ={}
 data['dataspringer']=[]
 def execute(a,query):
   ##agregaresto
-  data['dataspringer']=[]
+  #data['dataspringer']=[]
   respuestajson = []
   arregloarticulos=[]
   articulosjson= []
@@ -37,7 +37,6 @@ def execute(a,query):
     respuestajson =request.json()
     
     numarticulo = respuestajson['result']
-    
     numerito =numarticulo[0]
     print("total archivos "+numerito['total'])
     print(((int(numerito['total']))//100)+1)

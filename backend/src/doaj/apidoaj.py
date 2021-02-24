@@ -13,7 +13,7 @@ data['datadoaj']=[]
 #query="Energia"
 
 def execute(a,query,idioma,orden):
-  data['datadoaj']=[]
+  #data['datadoaj']=[]
   print(query)
   print(re.sub(" ","%20",query))
   queryf=re.sub(" ","%20",query)

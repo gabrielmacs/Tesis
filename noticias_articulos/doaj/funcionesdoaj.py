@@ -3,7 +3,7 @@ import json
 import codecs
 
 #cantidad=1
-query="Hydrostatic"
+query="covid"
 idioma= "EN"
 
 '''

@@ -173,7 +173,7 @@ def obtenerPalabrasRepetidas():
         json.dump(apidoaj.data,file,indent=4,ensure_ascii=False)  
 
   if(request.json['comercio']==True):
-    print("el coemrcaicaoslnc kbnjk")
+    print("el comecio***")
     idioma='ES'
     with open('dataelcomercio.json','w', encoding='utf-8') as file:
       for n in range(cantidad +3):
@@ -202,6 +202,7 @@ def obtenerPalabrasRepetidas():
   if(request.json['springer']==True):
     idioma='EN'
     cantidadspringer=apispringer.cantidadarticulos(query)
+    apispringer.data["dataspringer"] = []
     for n in range(cantidadspringer): 
         #apispringer.arregloarticulos = []
         apispringer.execute(n,query)  
