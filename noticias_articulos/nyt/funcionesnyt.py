@@ -6,9 +6,9 @@ import time
 arreglolinksnoticias=[]
 data ={} 
 data['noticias']=[]
-cantidad=25
-query="Covid"
-with open('datanytpaul.json','w', encoding='utf-8') as file:
+cantidad=2
+query="covid"
+with open('datanytpaul2021.json','w', encoding='utf-8') as file:
     for n in range(cantidad):
          
         

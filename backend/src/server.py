@@ -39,7 +39,7 @@ palabrasClaveRecibidas=['casa', 'mesa']
 arreglolinksnoticias=[]
 data ={} 
 data['noticias']=[]
-cantidad=3
+cantidad=10
 #NYT
 
 
@@ -153,13 +153,15 @@ def obtenerPalabrasRepetidas():
         for n in range(cantidad):
             apinyt.execute(n,arreglolinksnoticias,query)
             for url in arreglolinksnoticias:  
-                data['noticias'].append({'text':nnyt.get_news_nyt(url)})    
+                data['noticias'].append({'text':nnyt.get_news_nyt(url)})   
+            arreglolinksnoticias=[] 
         print(len(arreglolinksnoticias))
         json.dump(data,file,indent=4,ensure_ascii=False)
   
 
   if(request.json['doaj']==True):
     idioma='EN'
+    apidoaj.data['datadoaj']=[]
     if(apidoaj.cantidadarticulos2(1,query,idioma)>20):
         for n in range(1,apidoaj.cantidadpagina(1,query,idioma)):       
             apidoaj.execute(n,query,idioma,"asc")  
@@ -186,6 +188,7 @@ def obtenerPalabrasRepetidas():
 
   if(request.json['doajes']==True):
     idioma='ES'
+    apidoaj.data['datadoaj']=[]
     if(apidoaj.cantidadarticulos2(1,query,idioma)>20):
         for n in range(1,apidoaj.cantidadpagina(1,query,idioma)):       
             apidoaj.execute(n,query,idioma,"asc")  

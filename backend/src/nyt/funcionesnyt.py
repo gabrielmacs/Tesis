@@ -7,7 +7,7 @@ import codecs
 arreglolinksnoticias=[]
 data ={} 
 data['noticias']=[]
-cantidad=1
+cantidad=2
 query="skype"
 
     
